@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000">
+
+    <com.benyi.sdk.imageLayout.view.ImageLayout
+        android:id="@+id/inbox_activity_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="0.0pt" />
+
+    <com.benyi.sdk.imageLayout.view.ImageLayoutGestureListenerView
+        android:id="@+id/inbox_gesture_listener_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inbox_bottom_container"
+        android:layout_gravity="top"
+        android:layout_marginTop="36.0pt" />
+
+    <RelativeLayout
+        android:id="@+id/inbox_top_container"
+        android:layout_width="fill_parent"
+        android:layout_height="96.0pt"
+        android:paddingTop="2.0pt">
+
+        <RelativeLayout
+            android:id="@+id/inbox_title_dropdown"
+            android:layout_width="60.0pt"
+            android:layout_height="15.0pt"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6.0pt">
+
+            <ImageView
+                android:layout_width="3.0pt"
+                android:layout_height="3.0pt"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/down_arrow_30x15" />
+
+            <Button
+                android:id="@+id/inbox_title_button"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="0.0pt"
+                android:background="@drawable/transparent_button_background"
+                android:paddingBottom="0.0pt"
+                android:paddingLeft="0.0pt"
+                android:paddingRight="0.0pt"
+                android:paddingTop="1.0sp"
+                android:text="@string/inbox_title"
+                android:textColor="#ffffff"
+                android:textSize="14.0sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/inbox_subtitle_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="14.0sp"
+            android:layout_below="@id/inbox_title_dropdown"
+            android:gravity="center"
+            android:text="(Loading)"
+            android:textColor="#ffffff"
+            android:textSize="10.0sp" />
+
+        <Button
+            android:id="@+id/inbox_undo_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="20.0pt"
+            android:layout_height="20.0pt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3.0pt"
+            android:layout_marginTop="6.0pt"
+            android:background="@drawable/undo_button_108x108" />
+
+        <RelativeLayout
+            android:id="@+id/inbox_trash_can"
+            android:layout_width="20.0pt"
+            android:layout_height="20.0pt"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="1.0pt"
+            android:layout_marginTop="66.0pt">
+
+            <Button
+                android:id="@+id/inbox_trash_button"
+                android:layout_width="34.0pt"
+                android:layout_height="34.0pt"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="0.0pt"
+                android:background="@drawable/trash_can_112x112" />
+
+            <TextView
+                android:id="@+id/inbox_trash_counter"
+                android:layout_width="9.0pt"
+                android:layout_height="9.0pt"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="1.0pt"
+                android:layout_marginTop="1.0pt"
+                android:background="@drawable/trash_count_background_60x60"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="4.0pt" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@id/inbox_bottom_container"
+        android:layout_width="fill_parent"
+        android:layout_height="58.0pt"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="0.0pt">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/activity_bottom_menu_height"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/inbox_library_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_bottom_menu_height"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="0.0pt"
+                android:background="@drawable/button_dark_background"
+                android:text="@string/inbox_library_button_title"
+                android:textColor="@color/soft_white"
+                android:textSize="12.0sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.benyi.sdk.imageLayout.app.InboxFullscreenZoomView
+        android:id="@+id/inbox_fullscreen_zoom_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#000000"
+        android:visibility="invisible" />
+</RelativeLayout>
