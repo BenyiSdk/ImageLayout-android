@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="com.android.support:support-core-ui-25.0.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/1cf5b702fa70131cac2855f4c32bc480/jars/libs/internal_impl-25.0.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/1cf5b702fa70131cac2855f4c32bc480/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/1cf5b702fa70131cac2855f4c32bc480/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/fb0b7866c6c912443ed84d282eebe4b5/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/fb0b7866c6c912443ed84d282eebe4b5/jars/libs/internal_impl-25.0.0.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.0.0.aar/fb0b7866c6c912443ed84d282eebe4b5/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Development/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-core-ui/25.0.0/support-core-ui-25.0.0-javadoc.jar!/" />

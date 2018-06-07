@@ -27,3 +27,11 @@ android {
 dependencies {
     implementation 'com.android.support:percent:25.0.0'
 }
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'fengwuwuhen'      // bintray注册的用户名
+    groupId = 'com.benyi.sdk.imageLayout'
+    artifactId = 'imageLayout'// bintray创建的package
+    publishVersion = '1.1'
+}
