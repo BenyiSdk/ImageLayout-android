@@ -85,22 +85,13 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
         localTextView.setText(position + 1 + " of " + total);
     }
 
-    public void importPhotoToFloder(String floder) {
-        if (this.inboxActivityLayout.isAnimatorSetInit()) {
-            return;
-        }
-        this.inboxActivityLayout.bottomPhotoToFloder(floder);
-    }
+
 
     public void importPhoto(String floder) {
-        if (isReady()) {
-            return;
-        }
         String data =(String)inboxActivityLayout.getShowResoureData(nowIndex);
         topList.add(data);
         actionHistory.addBottomAction(StringUtil.dateToString(),floder, data);
         list.remove(nowIndex);
-        importPhotoToFloder(floder);
     }
 
     public void startDelPhoto() {
@@ -154,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
             return;
         }
         importPhoto("");
-//        startLibray();
     }
 
     public void startLibray() {
@@ -251,12 +241,24 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     }
 
     @Override
-    public void bottomAction() {
-        importPhoto("");
+    public String getBottomActionName() {
+        if(list.size()>3){
+            return null;
+        }else{
+            return "";
+        }
     }
+
+
 
     @Override
     public void bottomAction(String str) {
+        if(str==null){
+            importPhoto("");
+        }else{
+            importPhoto(str);
+
+        }
         changeNum();
     }
 

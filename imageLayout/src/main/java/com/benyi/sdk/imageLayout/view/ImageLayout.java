@@ -670,17 +670,22 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
      * 向下滑动
      */
     public void bottomAction() {
-        initAnimatorSet();
-        addAnimator(createLeftHideAnimator(this.leftInboxCardView));
-        addAnimator(createLeftShowAnimator(this.showInboxCardView));
-        addAnimator(createBackwardHideAnimator(this.bottomInboxCardView));
-        addAnimatorListener(new AnimatorEndListener() {
-            @Override
-            public void isFinish(boolean finish) {
-                ImageLayout.this.actionListener.bottomAction();
-            }
-        });
-        startAnimator();
+        final String folderName=actionListener.getBottomActionName();
+        if(folderName==null){
+            initAnimatorSet();
+            addAnimator(createLeftHideAnimator(this.leftInboxCardView));
+            addAnimator(createLeftShowAnimator(this.showInboxCardView));
+            addAnimator(createBackwardHideAnimator(this.bottomInboxCardView));
+            addAnimatorListener(new AnimatorEndListener() {
+                @Override
+                public void isFinish(boolean finish) {
+                    ImageLayout.this.actionListener.bottomAction(folderName);
+                }
+            });
+            startAnimator();
+        }else{
+            bottomPhotoToFloder(folderName);
+        }
     }
 
     /**

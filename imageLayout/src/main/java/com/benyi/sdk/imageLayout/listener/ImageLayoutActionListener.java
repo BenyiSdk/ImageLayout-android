@@ -43,7 +43,7 @@ public interface ImageLayoutActionListener<T>{
     /**
      * 向下滑动响应
      */
-    void bottomAction();
+    String getBottomActionName();
 
     /**
      * 向下滑动响应
