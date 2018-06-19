@@ -63,7 +63,7 @@ public interface ImageLayoutActionListener<T>{
      * @param data 源文件
      * @param view 全屏的View
      */
-    void initfullScreenPhoto(T data,View view);
+    void singleClick(T data,View view);
 
     /**
      * 向CardView中添加View

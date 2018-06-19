@@ -48,7 +48,7 @@ public class ImageLayoutCardView<T> extends LinearLayout {
         this.height = y;
     }
 
-    public void moveToTop(float x, float y, float z) {
+    public void moveToTop(float x, float y, float proportion) {
         float temp = 0.0006f;
         setX(this.left - x);
         setY(this.top - y);

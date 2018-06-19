@@ -45,7 +45,6 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
     private ImageLayoutCardView showInboxCardView;
     private ImageLayoutCardView bottomInboxCardView;
     private ImageLayoutCardView inboxCardView3;
-    private View inboxFullscreenZoomView;
     private ImageLayoutGestureListenerView inboxGestureListenerView;
     public ImageLayout(Context context) {
         this(context, null, 0);
@@ -84,40 +83,10 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
         this.animatorSet = new AnimatorSet();
     }
 
-    /**
-     * 判断大图是否打开
-     *
-     * @return 返回状态
-     */
-    public boolean isFullscreenZoomViewShow() {
-        return inboxFullscreenZoomView != null && (inboxFullscreenZoomView.getVisibility() == View.VISIBLE);
-    }
 
-    /**
-     * 打开大图
-     *
-     * @param data 资源文件
-     */
-    public void fullScreenPhoto(T data) {
-        if (inboxFullscreenZoomView == null) return;
-        actionListener.initfullScreenPhoto(data,inboxFullscreenZoomView);
-        inboxFullscreenZoomView.setOnClickListener(new OnClickListener() {
-            public void onClick(View paramView) {
-                ImageLayout.this.closeFullScreenPhoto();
-            }
-        });
-        detachViewFromParent(inboxFullscreenZoomView);
-        attachViewToParent(inboxFullscreenZoomView, -1, inboxFullscreenZoomView.getLayoutParams());
-        inboxFullscreenZoomView.setVisibility(View.VISIBLE);
-    }
 
-    /**
-     * 关闭大图
-     */
-    public void closeFullScreenPhoto() {
-        if (inboxFullscreenZoomView == null) return;
-        inboxFullscreenZoomView.setVisibility(View.INVISIBLE);
-    }
+
+
 
     /**
      * 判断动画是否被初始化
@@ -226,8 +195,9 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
      */
     private ImageLayoutCardView createCardView(int position) {
         T data = getShowResoureData(position);
-        if (data == null)
+        if (data == null){
             return null;
+        }
         return createInitCardView(data);
     }
 
@@ -447,8 +417,9 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
      * @return 返回动画
      */
     public ObjectAnimator createLeftHideAnimator(ImageLayoutCardView cardView) {
-        if (cardView == null)
+        if (cardView == null){
             return null;
+        }
         return ViewPropertyObjectAnimator.getInstance(cardView)
                 .setDuration(100)
                 .setXProperty(firstViewLeft)
@@ -795,12 +766,12 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
     }
 
     @Override
-    public void moveTop(float x, float y, float yPproportion) {
+    public void moveTop(float x, float y, float proportion) {
         if (this.showInboxCardView != null) {
-            this.showInboxCardView.moveToTop(x, y, yPproportion);
+            this.showInboxCardView.moveToTop(x, y, proportion);
         }
         if (this.bottomInboxCardView != null) {
-            this.bottomInboxCardView.showNext(x, yPproportion);
+            this.bottomInboxCardView.showNext(x, proportion);
         }
     }
 
@@ -892,10 +863,16 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
         if (this.showInboxCardView == null || this.showInboxCardView.getResourceData() == null) {
             return;
         }
-        fullScreenPhoto((T)this.showInboxCardView.getResourceData());
+        if(actionListener!=null){
+            actionListener.singleClick(this.showInboxCardView.getResourceData(),this.showInboxCardView);
+        }
     }
 
     interface AnimatorEndListener {
+        /**
+         * 动画完成
+         * @param finish 完成
+         */
         void isFinish(boolean finish);
     }
 
@@ -962,10 +939,6 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
             removeViewInLayout(this.inboxCardView3);
             initBottomCardView(inboxCardView3);
         }
-        if (inboxFullscreenZoomView != null) {
-            removeViewInLayout(inboxFullscreenZoomView);
-            addViewInLayout(inboxFullscreenZoomView, -1, inboxFullscreenZoomView.getLayoutParams());
-        }
         finishLayout();
         this.initLayout = false;
     }
@@ -995,14 +968,7 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
         this.inboxGestureListenerView = inboxGestureListenerView;
     }
 
-    /**
-     * 设置查看大图的View
-     *
-     * @param inboxFullscreenZoomView view
-     */
-    public void setInboxFullscreenZoomView(View inboxFullscreenZoomView) {
-        this.inboxFullscreenZoomView = inboxFullscreenZoomView;
-    }
+
 
     /**
      * 获取当前显示的图片资源

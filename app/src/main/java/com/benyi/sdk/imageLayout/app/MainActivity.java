@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
         gestureListenerView.addListener(inboxActivityLayout);
         inboxActivityLayout.setInboxGestureListenerView(gestureListenerView);
         inboxFullscreenZoomView=(InboxFullscreenZoomView) findViewById(R.id.inbox_fullscreen_zoom_view);
-        inboxActivityLayout.setInboxFullscreenZoomView(inboxFullscreenZoomView);
         findViewById(R.id.inbox_undo_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,13 +74,7 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
         changeNum();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (this.inboxActivityLayout.isFullscreenZoomViewShow()) {
-            this.inboxActivityLayout.closeFullScreenPhoto();
-        }
-    }
+
 
     public void setTitleText(int position, int total) {
         TextView localTextView = (TextView) findViewById(R.id.inbox_subtitle_text_view);
@@ -179,9 +172,6 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     public void undo() {
         if (isReady()) {
             return;
-        }
-        if (this.inboxActivityLayout.isFullscreenZoomViewShow()) {
-            this.inboxActivityLayout.closeFullScreenPhoto();
         }
         startUndoAnimation();
         startUndo();
@@ -287,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     }
 
     @Override
-    public void initfullScreenPhoto(String data, View view) {
+    public void singleClick(String data, View view) {
         if(view instanceof InboxFullscreenZoomView){
             inboxFullscreenZoomView.init(data);
         }
