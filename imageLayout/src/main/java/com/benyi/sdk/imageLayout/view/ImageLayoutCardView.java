@@ -92,7 +92,13 @@ public class ImageLayoutCardView<T> extends LinearLayout {
     }
 
     public void moveToBottom(float x, float y, float yPproportion) {
-        setY(this.top - 0.5f * y);
+//        setY(this.top - 0.5f * y);
+        float temp = 0.0006f;
+        setX(this.left - x);
+        setY(this.top - y);
+        setRotation(y * 12.0F / 800);
+        setScaleX(1.0f-Math.abs(temp*y));
+        setScaleY(1.0f-Math.abs(temp*y));
     }
 
     public void moveToRight(float x, float xPproportion) {

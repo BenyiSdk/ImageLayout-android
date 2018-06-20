@@ -42,6 +42,7 @@ public interface ImageLayoutActionListener<T>{
 
     /**
      * 向下滑动响应
+     * @return 返回响应的相册名称
      */
     String getBottomActionName();
 
