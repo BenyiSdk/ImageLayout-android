@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/MuFe/Desktop/androidwork/ImageLayout-android/imageLayout/build/intermediates/intermediate-jars/release/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fb95fac497f7b3eba8c334b8f2d3ae57251c74c8">
+        <dex dex="/Users/MuFe/Desktop/androidwork/ImageLayout-android/app/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+
+</items>

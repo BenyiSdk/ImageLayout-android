@@ -42,4 +42,20 @@ public class ActionHistory<T> {
         list.remove(action);
         return action;
     }
+
+    /**
+     *
+     * @return 获取全部数据
+     */
+    public List<Action> getActions(){
+        return list;
+    }
+
+    /**
+     * 加载历史数据
+     * @param lists 历史数据
+     */
+    public void loadActions(List<Action> lists){
+        list.addAll(lists);
+    }
 }
