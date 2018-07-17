@@ -4,10 +4,10 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "1.5"
+        versionName "1.6"
     }
 
     buildTypes {
@@ -31,5 +31,5 @@ publish {
     userOrg = 'fengwuwuhen'      // bintray注册的用户名
     groupId = 'com.benyi.sdk.imageLayout'
     artifactId = 'imageLayout'// bintray创建的package
-    publishVersion = '1.5'
+    publishVersion = '1.6'
 }

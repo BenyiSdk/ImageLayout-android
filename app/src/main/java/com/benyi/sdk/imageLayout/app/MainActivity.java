@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     }
 
     public void startUndo() {
-        Action action=actionHistory.getLast();
+        Action action=actionHistory.pop();
         if(action!=null){
             if (action.isRightAction()) {
                 nowIndex++;

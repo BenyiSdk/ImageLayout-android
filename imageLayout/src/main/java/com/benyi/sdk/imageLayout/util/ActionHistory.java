@@ -34,7 +34,11 @@ public class ActionHistory<T> {
         list.add(action);
     }
 
-    public Action getLast(){
+    /**
+     * 推出最后一次操作
+     * @return 操作记录
+     */
+    public Action pop(){
         if(list.isEmpty()){
             return null;
         }
@@ -42,6 +46,7 @@ public class ActionHistory<T> {
         list.remove(action);
         return action;
     }
+
 
     /**
      *
@@ -51,6 +56,16 @@ public class ActionHistory<T> {
         return list;
     }
 
+    /**
+     * 获取最后一次操作记录
+     * @return 操作记录
+     */
+    public Action getLast(){
+        if(list.isEmpty()){
+            return null;
+        }
+        return list.get(list.size()-1);
+    }
     /**
      * 加载历史数据
      * @param lists 历史数据
