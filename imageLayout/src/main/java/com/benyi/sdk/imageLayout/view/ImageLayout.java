@@ -183,7 +183,9 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
         createCardView.setLayoutParams(new ViewGroup.LayoutParams(this.cardWidth, this.cardHeight));
         createCardView.init(this.cardWidth, this.cardHeight);
         createCardView.setVisibility(View.INVISIBLE);
-        actionListener.addViewToCardView(createCardView,data);
+        if(actionListener!=null){
+            actionListener.addViewToCardView(createCardView,data);
+        }
         return createCardView;
     }
 
@@ -508,7 +510,7 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
      *
      * @param name 文件夹
      */
-    public void bottomPhotoToFloder(final String name) {
+    public void bottomPhotoToFolder(final String name) {
         this.inboxCardView3 = this.showInboxCardView;
         initAnimatorSet();
         addAnimator(createLeftShowAnimator(this.bottomInboxCardView));
@@ -517,7 +519,7 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
             @Override
             public void isFinish(boolean finish) {
                 ImageLayout.this.showInboxCardView = ImageLayout.this.bottomInboxCardView;
-                ImageLayout.this.bottomInboxCardView = createCardView(actionListener.getShowIndex() + 1);
+                ImageLayout.this.bottomInboxCardView = createCardView(actionListener.getShowIndex() + 2);
                 ImageLayout.this.requestLayout();
                 ImageLayout.this.actionListener.bottomAction(name);
             }
@@ -679,12 +681,12 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
             addAnimatorListener(new AnimatorEndListener() {
                 @Override
                 public void isFinish(boolean finish) {
-                    ImageLayout.this.actionListener.bottomAction(folderName);
+                    ImageLayout.this.actionListener.bottomAction(null);
                 }
             });
             startAnimator();
         }else{
-            bottomPhotoToFloder(folderName);
+            bottomPhotoToFolder(folderName);
         }
     }
 
