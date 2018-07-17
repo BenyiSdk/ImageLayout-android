@@ -214,14 +214,14 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     @Override
     public void nextAction() {
         nowIndex++;
-        actionHistory.addNextAction(StringUtil.dateToString());
+        actionHistory.addNextAction(StringUtil.dateToString(),"");
         changeNum();
     }
 
     @Override
     public void prevAction() {
         nowIndex--;
-        actionHistory.addPrevAction(StringUtil.dateToString());
+        actionHistory.addPrevAction(StringUtil.dateToString(),"");
         changeNum();
     }
 
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     public void topAction() {
         String data =(String)inboxActivityLayout.getShowResoureData(nowIndex);
         topList.add(data);
-        actionHistory.addTopAction(StringUtil.dateToString(), data);
+        actionHistory.addTopAction(StringUtil.dateToString(),"", data);
         list.remove(nowIndex);
         startTrashAnimation();
         changeNum();

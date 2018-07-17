@@ -12,23 +12,23 @@ import java.util.List;
  */
 public class ActionHistory<T> {
     private final List<Action> list=new ArrayList<>();
-    public void addNextAction(String time){
-        Action action=Action.leftAction(time);
+    public void addNextAction(String time,String name){
+        Action action=Action.leftAction(time,name);
         list.add(action);
     }
 
-    public void addPrevAction(String time){
-        Action action=Action.rightAction(time);
+    public void addPrevAction(String time,String name){
+        Action action=Action.rightAction(time,name);
         list.add(action);
     }
 
-    public void addTopAction(String time, T data){
-        Action action=Action.topAction(time);
+    public void addTopAction(String time,String name,T data){
+        Action action=Action.topAction(time,name);
         action.data=data;
         list.add(action);
     }
 
-    public void addBottomAction(String time, String name,T data){
+    public void addBottomAction(String time,String name,T data){
         Action action=Action.bottomAction(time,name);
         action.data=data;
         list.add(action);

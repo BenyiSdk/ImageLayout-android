@@ -20,40 +20,44 @@ public class Action<T> {
     public String name;
     public int oldIndex;
     public int newIndex;
-    public static Action leftAction(String str){
+    public static Action leftAction(String str,String name){
         Action action=new Action();
         action.action = LEFT_ACITON;
         action.time =str;
+        action.name=name;
         return action;
     }
-    public static Action selectAction(String str,int oldIndex,int newIndex){
+    public static Action selectAction(String str,String name,int oldIndex,int newIndex){
         Action action=new Action();
         action.action = SELECT_ACITON;
         action.time =str;
+        action.name=name;
         action.oldIndex =oldIndex;
         action.newIndex =newIndex;
         return action;
     }
 
-    public static Action topAction(String str){
+    public static Action topAction(String str,String name){
         Action action=new Action();
         action.action = TOP_ACITON;
         action.time =str;
+        action.name=name;
         return action;
     }
 
-    public static Action bottomAction(String str,String floder){
+    public static Action bottomAction(String str,String name){
         Action action=new Action();
         action.action = BOTTOM_ACITON;
         action.time =str;
-        action.name =floder;
+        action.name =name;
         return action;
     }
 
-    public static Action rightAction(String str){
+    public static Action rightAction(String str,String name){
         Action action=new Action();
         action.action = RIGHT_ACITON;
         action.time =str;
+        action.name =name;
         return action;
     }
 
