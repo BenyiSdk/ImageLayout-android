@@ -41,6 +41,11 @@ public interface ImageLayoutActionListener<T>{
     void topAction();
 
     /**
+     * 左边第一张响应
+     */
+    void leftFirstAction();
+
+    /**
      * 向下滑动响应
      * @return 返回响应的相册名称
      */

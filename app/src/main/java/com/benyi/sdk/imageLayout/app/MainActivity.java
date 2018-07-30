@@ -203,6 +203,11 @@ public class MainActivity extends AppCompatActivity implements ImageLayoutAction
     }
 
     @Override
+    public void leftFirstAction() {
+
+    }
+
+    @Override
     public void animationStateChange(boolean isStart) {
         if (isStart) {
             this.gestureListenerView.startAnimation();

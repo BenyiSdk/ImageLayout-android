@@ -829,6 +829,7 @@ public class ImageLayout<T extends Object> extends RelativeLayout implements Ima
         }
         if (this.leftInboxCardView == null) {
             restore();
+            actionListener.leftFirstAction();
             return;
         }
         rightAction();
