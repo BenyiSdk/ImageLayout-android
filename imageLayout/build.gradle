@@ -7,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "1.9"
+        versionName "1.10"
     }
 
     buildTypes {
@@ -31,5 +31,5 @@ publish {
     userOrg = 'fengwuwuhen'      // bintray注册的用户名
     groupId = 'com.benyi.sdk.imageLayout'
     artifactId = 'imageLayout'// bintray创建的package
-    publishVersion = '1.9'
+    publishVersion = '1.10'
 }
